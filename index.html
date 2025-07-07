@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ShopPulse - Your ultimate online shopping destination for quality products, fast shipping, and exceptional customer service.">
+    <meta name="keywords" content="ecommerce, online shopping, electronics, clothing, home goods, ShopPulse">
+    <meta name="author" content="Preneetha Yedia - BTech IT Student, Vishnu Institute of Technology">
+    <title>ShopPulse - Experience The Ultimate Online Shopping</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo" onclick="showPage('home')">ShopPulse</div>
+                
+                <nav class="nav-desktop">
+                    <button onclick="showPage('home')" class="nav-link active" data-page="home">HOME</button>
+                    <button onclick="showPage('shop')" class="nav-link" data-page="shop">SHOP</button>
+                    <button onclick="showPage('about')" class="nav-link" data-page="about">ABOUT</button>
+                    <button onclick="showPage('contact')" class="nav-link" data-page="contact">CONTACT</button>
+                </nav>
+
+                <div class="search-container">
+                    <form onsubmit="handleSearch(event)">
+                        <input type="text" id="searchInput" placeholder="Search products..." class="search-input">
+                        <button type="submit" class="search-btn">🔍</button>
+                    </form>
+                </div>
+
+                <div class="header-actions">
+                    <button class="action-btn">👤</button>
+                    <button class="cart-btn" onclick="showPage('cart')">
+                        🛒
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                </div>
+
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            </div>
+
+            <div class="mobile-search">
+                <form onsubmit="handleSearch(event)">
+                    <input type="text" placeholder="Search products..." class="search-input">
+                    <button type="submit" class="search-btn">🔍</button>
+                </form>
+            </div>
+
+            <nav class="nav-mobile" id="mobileNav">
+                <button onclick="showPage('home')" class="nav-link">HOME</button>
+                <button onclick="showPage('shop')" class="nav-link">SHOP</button>
+                <button onclick="showPage('about')" class="nav-link">ABOUT</button>
+                <button onclick="showPage('contact')" class="nav-link">CONTACT</button>
+                <div class="mobile-actions">
+                    <button class="action-btn">👤</button>
+                    <button class="cart-btn" onclick="showPage('cart')">
+                        🛒
+                        <span class="cart-count">0</span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Page -->
+        <div id="homePage" class="page active">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>Welcome To ShopPulse</h1>
+                    <p>Experience The Ultimate Online Shopping</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="showPage('shop')">Shop Now</button>
+                        <button class="btn btn-secondary">Learn More</button>
+                    </div>
+                </div>
+                <div class="scroll-indicator">
+                    <div class="scroll-dot"></div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="features">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Endless Possibilities</h2>
+                        <p>Our responsive and cross-browser e-commerce site is built using HTML, CSS, and JavaScript, ensuring optimal performance, minimal load times, and usability across devices.</p>
+                    </div>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🔒</div>
+                            <h3>Secure Transactions</h3>
+                            <p>Your payment information is protected with bank-level security encryption.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🚚</div>
+                            <h3>Fast Shipping</h3>
+                            <p>Free shipping on orders over ₹2000. Express delivery available nationwide.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🎧</div>
+                            <h3>24/7 Customer Support</h3>
+                            <p>Our dedicated support team is available around the clock to help you.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🏆</div>
+                            <h3>Quality Guarantee</h3>
+                            <p>All products come with our quality guarantee and easy returns policy.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">✅</div>
+                            <h3>Easy Returns</h3>
+                            <p>Not satisfied? Return any item within 30 days for a full refund.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">👥</div>
+                            <h3>Trusted by Thousands</h3>
+                            <p>Join over 50,000 satisfied customers who trust ShopPulse for their needs.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials Section -->
+            <section class="testimonials">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>What Our Customers Say</h2>
+                        <p>Read what our happy customers have to say about their ShopPulse experience.</p>
+                    </div>
+                    <div class="testimonials-grid">
+                        <div class="testimonial-card">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <p>"ShopPulse has the trendiest fashion pieces, and their quick delivery always exceeds my expectations."</p>
+                            <div class="testimonial-author">
+                                <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150" alt="Sarah Johnson">
+                                <div>
+                                    <h4>Sarah Johnson</h4>
+                                    <span>Purchased: Organic Cotton T-Shirt</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card featured">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <p>"I rely on ShopPulse for all my tech needs, and their customer support is top-notch."</p>
+                            <div class="testimonial-author">
+                                <img src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=150" alt="Marcus Chen">
+                                <div>
+                                    <h4>Marcus Chen</h4>
+                                    <span>Purchased: Smart Fitness Watch</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <p>"Finding unique home decor items is effortless with ShopPulse. Highly recommended!"</p>
+                            <div class="testimonial-author">
+                                <img src="https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=150" alt="Emma Rodriguez">
+                                <div>
+                                    <h4>Emma Rodriguez</h4>
+                                    <span>Purchased: Minimalist Wall Clock</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Shop Page -->
+        <div id="shopPage" class="page">
+            <div class="container">
+                <div class="shop-header">
+                    <div>
+                        <h1 id="shopTitle">Shop All Products</h1>
+                        <p id="productCount">8 products found</p>
+                    </div>
+                    <div class="shop-controls">
+                        <button class="filter-btn" onclick="toggleFilters()">🔽 Filters</button>
+                        <select id="sortSelect" onchange="sortProducts()">
+                            <option value="featured">Featured</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="rating">Highest Rated</option>
+                            <option value="newest">Newest</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="filters" id="filters">
+                    <h3>Filters</h3>
+                    <div class="filters-grid">
+                        <div>
+                            <label>Category</label>
+                            <select id="categoryFilter" onchange="filterProducts()">
+                                <option value="All">All</option>
+                                <option value="Electronics">Electronics</option>
+                                <option value="Clothing">Clothing</option>
+                                <option value="Accessories">Accessories</option>
+                                <option value="Home & Kitchen">Home & Kitchen</option>
+                                <option value="Sports & Fitness">Sports & Fitness</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Price Range: ₹<span id="priceMin">0</span> - ₹<span id="priceMax">5000</span></label>
+                            <div class="price-range">
+                                <input type="range" id="priceRangeMin" min="0" max="5000" value="0" oninput="updatePriceRange()">
+                                <input type="range" id="priceRangeMax" min="0" max="5000" value="5000" oninput="updatePriceRange()">
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn-secondary" onclick="clearFilters()">Clear Filters</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Detail Page -->
+        <div id="productPage" class="page">
+            <div class="container">
+                <button class="back-btn" onclick="showPage('shop')">← Back to Products</button>
+                <div id="productDetail">
+                    <!-- Product details will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Cart Page -->
+        <div id="cartPage" class="page">
+            <div class="container">
+                <div class="cart-header">
+                    <h1>Shopping Cart</h1>
+                    <button class="back-btn" onclick="showPage('shop')">← Continue Shopping</button>
+                </div>
+                <div id="cartContent">
+                    <!-- Cart content will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Checkout Page -->
+        <div id="checkoutPage" class="page">
+            <div class="container">
+                <div class="checkout-header">
+                    <h1>Checkout</h1>
+                    <button class="back-btn" onclick="showPage('cart')">← Back to Cart</button>
+                </div>
+                <div class="checkout-content">
+                    <div class="checkout-form">
+                        <form id="checkoutForm">
+                            <div class="form-step active" id="step1">
+                                <h2>Contact Information</h2>
+                                <div class="form-group">
+                                    <label>Email Address</label>
+                                    <input type="email" name="email" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>First Name</label>
+                                        <input type="text" name="firstName" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Last Name</label>
+                                        <input type="text" name="lastName" required>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-primary" onclick="nextStep()">Continue to Shipping</button>
+                            </div>
+
+                            <div class="form-step" id="step2">
+                                <h2>Shipping Address</h2>
+                                <div class="form-group">
+                                    <label>Address</label>
+                                    <input type="text" name="address" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>City</label>
+                                        <input type="text" name="city" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>State</label>
+                                        <input type="text" name="state" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>PIN Code</label>
+                                        <input type="text" name="pinCode" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Country</label>
+                                        <select name="country">
+                                            <option value="India">India</option>
+                                            <option value="USA">United States</option>
+                                            <option value="UK">United Kingdom</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-buttons">
+                                    <button type="button" class="btn btn-secondary" onclick="prevStep()">Back</button>
+                                    <button type="button" class="btn btn-primary" onclick="nextStep()">Continue to Payment</button>
+                                </div>
+                            </div>
+
+                            <div class="form-step" id="step3">
+                                <h2>💳 Payment Information</h2>
+                                <div class="form-group">
+                                    <label>Card Number</label>
+                                    <input type="text" name="cardNumber" placeholder="1234 5678 9012 3456" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Expiry Date</label>
+                                        <input type="text" name="expiryDate" placeholder="MM/YY" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>CVV</label>
+                                        <input type="text" name="cvv" placeholder="123" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Cardholder Name</label>
+                                    <input type="text" name="cardName" required>
+                                </div>
+                                <div class="security-info">
+                                    <span>🔒 Your payment information is secure and encrypted</span>
+                                </div>
+                                <div class="form-buttons">
+                                    <button type="button" class="btn btn-secondary" onclick="prevStep()">Back</button>
+                                    <button type="submit" class="btn btn-primary">Complete Order</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="order-summary">
+                        <h3>Order Summary</h3>
+                        <div id="checkoutSummary">
+                            <!-- Order summary will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Order Confirmation Page -->
+        <div id="confirmationPage" class="page">
+            <div class="container">
+                <div class="confirmation-content">
+                    <div class="success-icon">✅</div>
+                    <h1>Order Confirmed!</h1>
+                    <p>Thank you for your purchase! Your order has been successfully placed.</p>
+                    
+                    <div class="order-details">
+                        <div class="detail-row">
+                            <div>
+                                <h3>Order Details</h3>
+                                <p>Order ID: <span id="orderId"></span></p>
+                                <p>Date: <span id="orderDate"></span></p>
+                            </div>
+                            <div>
+                                <h3>Delivery Information</h3>
+                                <p>Expected Delivery: <span id="deliveryDate"></span></p>
+                                <p>Shipping: Standard (5-7 business days)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="process-steps">
+                        <div class="step">
+                            <div class="step-icon">📦</div>
+                            <h3>Order Processing</h3>
+                            <p>Your order is being prepared for shipment</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">🚚</div>
+                            <h3>Shipping</h3>
+                            <p>You'll receive tracking information soon</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">📧</div>
+                            <h3>Confirmation</h3>
+                            <p>Order confirmation sent to your email</p>
+                        </div>
+                    </div>
+
+                    <div class="confirmation-buttons">
+                        <button class="btn btn-primary" onclick="showPage('shop')">Continue Shopping</button>
+                        <button class="btn btn-secondary">Track Your Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Page -->
+        <div id="aboutPage" class="page">
+            <section class="page-hero">
+                <div class="container">
+                    <h1>About ShopPulse</h1>
+                    <p>We're passionate about delivering exceptional online shopping experiences with quality products and outstanding customer service.</p>
+                </div>
+            </section>
+
+            <section class="stats-section">
+                <div class="container">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">👥</div>
+                            <div class="stat-value">50,000+</div>
+                            <div class="stat-label">Happy Customers</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🏆</div>
+                            <div class="stat-value">1+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🌍</div>
+                            <div class="stat-value">5+</div>
+                            <div class="stat-label">States Served</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">⏰</div>
+                            <div class="stat-value">2-3 Days</div>
+                            <div class="stat-label">Average Delivery</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="story-section">
+                <div class="container">
+                    <h2>Our Story</h2>
+                    <div class="story-content">
+                        <p>Founded in 2025, ShopPulse began as a small startup with a simple mission: to make online shopping more accessible, enjoyable, and reliable for everyone. What started as a team of five passionate entrepreneurs has grown into a trusted e-commerce platform serving customers across India.</p>
+                        <p>We believe that shopping should be more than just a transaction – it should be an experience that brings joy and satisfaction. That's why we've built our platform with cutting-edge technology, carefully curated products, and a customer-first approach that puts your needs at the heart of everything we do.</p>
+                        <p>Today, we're proud to be the go-to destination for thousands of customers who trust us with their shopping needs. From electronics and fashion to home goods and fitness equipment, we continue to expand our offerings while maintaining the quality and service standards that have made us who we are.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="services-section">
+                <div class="container">
+                    <h2>Our Services</h2>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <div class="service-icon">🔒</div>
+                            <h3>Secure Transactions</h3>
+                            <p>Bank-level security encryption protects your payment information with every purchase.</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">🚚</div>
+                            <h3>Fast Shipping</h3>
+                            <p>Free shipping on orders over ₹2000 with express delivery options available nationwide.</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">🎧</div>
+                            <h3>24/7 Customer Support</h3>
+                            <p>Our dedicated support team is available around the clock to assist you with any questions.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mission-vision">
+                <div class="container">
+                    <div class="mission-vision-grid">
+                        <div>
+                            <h2>Our Mission</h2>
+                            <p>To revolutionize the online shopping experience by providing a seamless, secure, and personalized platform that connects customers with quality products while fostering trust and satisfaction in every interaction.</p>
+                        </div>
+                        <div>
+                            <h2>Our Vision</h2>
+                            <p>To become India's most trusted and innovative e-commerce platform, setting new standards for customer experience, product quality, and technological excellence while building lasting relationships with our community.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Contact Page -->
+        <div id="contactPage" class="page">
+            <section class="page-hero">
+                <div class="container">
+                    <h1>Get In Touch</h1>
+                    <p>Reach out to us for any inquiries or feedback. We are located in the heart of Tanuku, Andhra Pradesh, India.</p>
+                </div>
+            </section>
+
+            <section class="contact-info">
+                <div class="container">
+                    <div class="contact-grid">
+                        <div class="contact-card">
+                            <div class="contact-icon">📍</div>
+                            <h3>Address</h3>
+                            <p>123 ShopPulse Street<br>Tanuku, Andhra Pradesh, India</p>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">📞</div>
+                            <h3>Phone</h3>
+                            <p>+91 98765 XXXXX<br>+91 87654 XXXXX</p>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">📧</div>
+                            <h3>Email</h3>
+                            <p>info@shoppulse.com<br>support@shoppulse.com</p>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">⏰</div>
+                            <h3>Hours</h3>
+                            <p>Mon - Fri: 9:00 AM - 6:00 PM<br>Sat - Sun: 10:00 AM - 4:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="contact-form-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Send Us A Message</h2>
+                        <p>Have a question or need assistance? We're here to help! Fill out the form below and we'll get back to you as soon as possible.</p>
+                    </div>
+                    <div class="contact-form-container">
+                        <form id="contactForm" onsubmit="submitContactForm(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Full Name</label>
+                                    <input type="text" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Email Address</label>
+                                    <input type="email" name="email" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Subject</label>
+                                <input type="text" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Message</label>
+                                <textarea name="message" rows="6" required></textarea>
+                            </div>
+                            <div class="form-submit">
+                                <button type="submit" class="btn btn-primary">📧 Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <section class="store-info">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Visit Our Store</h2>
+                        <p>While we're primarily an online retailer, we also have a physical showroom where you can see our products in person. Schedule an appointment to visit us!</p>
+                    </div>
+                    <div class="store-info-content">
+                        <div class="store-info-grid">
+                            <div>
+                                <h3>Store Information</h3>
+                                <div class="info-list">
+                                    <p><strong>Regular Timings:</strong> 9:00 a.m to 11:00 p.m</p>
+                                    <p><strong>Location:</strong> 123 ShopPulse Street, Tanuku, Andhra Pradesh, India</p>
+                                    <p><strong>Parking:</strong> Free parking available</p>
+                                    <p><strong>Accessibility:</strong> Wheelchair accessible entrance</p>
+                                </div>
+                            </div>
+                            <div>
+                                <h3>Need Help?</h3>
+                                <div class="info-list">
+                                    <p>Check our FAQ section for quick answers</p>
+                                    <p>Live chat support available 24/7</p>
+                                    <p>Email response time: Within 24 hours</p>
+                                    <p>Phone support: Monday to Friday, 9 AM - 6 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-logo">ShopPulse</h3>
+                    <p>Your trusted online shopping destination for quality products and exceptional customer service.</p>
+                    <div class="social-links">
+                        <a href="#">📘</a>
+                        <a href="#">🐦</a>
+                        <a href="#">📷</a>
+                        <a href="#">📺</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#" onclick="showPage('shop')">Shop All</a></li>
+                        <li><a href="#">Electronics</a></li>
+                        <li><a href="#">Clothing</a></li>
+                        <li><a href="#">Home & Garden</a></li>
+                        <li><a href="#">Sports & Fitness</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#" onclick="showPage('contact')">Contact Us</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p>📍 123 ShopPulse Street, Tanuku, Andhra Pradesh</p>
+                        <p>📞 +91 98765 XXXXX</p>
+                        <p>📧 info@shoppulse.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="newsletter">
+                <h4>Stay Updated</h4>
+                <p>Subscribe to our newsletter for the latest deals and updates.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button>Subscribe</button>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 ShopPulse. All rights reserved. | Created by Preneetha Yedia - BTech IT Student, Vishnu Institute of Technology</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
