@@ -2,7 +2,7 @@
 
 **ShopPulse** is a sleek and fully functional front-end e-commerce website built using HTML, CSS, and JavaScript. It includes product listings, filters, cart functionality, and a simulated checkout process — all with responsive design and smooth user experience.
 
-🔗 **Live Demo on Glitch:** [https://shoppulse-ecommerce.glitch.me](https://shoppulse-ecommerce.glitch.me)
+🔗 **Live Demo :** [click here](https://preneethayedida.github.io/ShopPulse-E-Commerce/)
 
 ---
 
